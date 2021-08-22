@@ -7,10 +7,10 @@
 #------------------------------------------------------------------
 
 wp core download
-
-wp config create --dbname=wp --dbuser=oc_debo --dbpass=tEqCgOGcIrM9Yhb1l9LMrCxjTUazEG
+# Параметры указанные заглавными необходимо изменить на свои значения под конкретную установку
+wp config create --dbname=DBNAME --dbuser=DBUSER --dbpass=DBPASS
 wp db create
-wp core install --url=deboart.dhis.org --title="SITE TITLE" --admin_user=debo --admin_password=DB183729! --admin_email=YOUR@EMAIL.com
+wp core install --url=SITE_URL --title="SITE TITLE" --admin_user=ADMIN_USER --admin_password=ADMIN_PASS --admin_email=YOUR@EMAIL.com
 
 # ===Удаление лишних настроек и данных===
 
@@ -24,9 +24,6 @@ wp site empty
 wp site empty --uploads
 
 # ===Установка и активация плагинов===
-
-wp plugin install getwid
-wp plugin activate getwid
 
 wp plugin install advanced-custom-fields
 wp plugin activate advanced-custom-fields
@@ -53,30 +50,32 @@ wp plugin activate wp-file-manager
 
 # ===Установка собственных плагинов===
 
-wp plugin install citotnik
-wp plugin activate citotnik 
+# wp plugin install citotnik
+# wp plugin activate citotnik 
 
 # ===Установка и активация тем===
 
-wp theme install twentyfifteen
-wp theme activate twentyfifteen
+# wp theme install twentyfifteen
+# wp theme activate twentyfifteen
 
-wp theme install twentysixteen
-wp theme activate twentysixteen
+# wp theme install twentysixteen
+# wp theme activate twentysixteen
 
-wp theme install twentyseventeen
-wp theme activate twentyseventeen
+# wp theme install twentyseventeen
+# wp theme activate twentyseventeen
 
-wp theme install twentynineteen
-wp theme activate twentynineteen
+# wp theme install twentynineteen
+# wp theme activate twentynineteen
 
-wp theme install twentytwenty
-wp theme activate twentytwenty
+# wp theme install twentytwenty
+# wp theme activate twentytwenty
 
+wp theme install twentytwentyone
+wp theme activate twentytwentyone
 
 # ===Настройка config.php===
 
-wp rewrite structure '/%postname%/'
+wp rewrite structure '/%category%/%post_id%'
 # wp option update blog_public 1
 wp option update blogname "Your site name"
 wp option update blogdescription "Your site description"

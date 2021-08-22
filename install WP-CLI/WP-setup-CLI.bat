@@ -12,12 +12,12 @@ if (%2)==() goto %noparam
 
 
 php wp core download
-
+rem Параметры указанные заглавными необходимо изменить на свои значения под конкретную установку
 rem  ===Создание конфигурации с переменными: WP_DBNAME, NAMEDOMAIN.LOCAL, PASSWORD ===
 
-php wp config create --dbname=%2 --dbuser=oc_debo --dbpass=tEqCgOGcIrM9Yhb1l9LMrCxjTUazEG
+php wp config create --dbname=%2 --dbuser=DBUSER --dbpass=DBPASS
 php wp db create
-php wp core install --url=%1 --title="SITE TITLE" --admin_user=debo --admin_password=PASSWORD --admin_email=YOUR@EMAIL.COM
+php wp core install --url=%1 --title="SITE TITLE" --admin_user=ADMIN_USER --admin_password=PASSWORD --admin_email=YOUR@EMAIL.COM
 
 
 rem  ===Удаление лишних настроек и данных===

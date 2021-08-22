@@ -86,7 +86,7 @@ php wp theme activate twentytwentyone
 
 rem  ===Настройка config.php===
 
-php wp rewrite structure '/%postname%/'
+php wp rewrite structure '/%category%/%post_id%'
 rem  php wp option update blog_public 1
 php wp option update blogname "Your site name"
 php wp option update blogdescription "Your site description"

@@ -46,6 +46,17 @@ wp plugin activate regenerate-thumbnails
 wp plugin install wp-file-manager
 wp plugin activate wp-file-manager
 
+wp plugin install gutenberg
+wp plugin activate gutenberg
+
+# Yoast SEO
+wp plugin install wordpress-seo
+wp plugin activate wordpress-seo
+
+# для новых плагинов
+# wp plugin install 
+# wp plugin activate 
+
 #wp option update fm-lang ru
 
 # ===Установка собственных плагинов===

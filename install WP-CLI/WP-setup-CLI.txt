@@ -1,0 +1,99 @@
+#!/bin/bash
+
+#-------------------------------------------------------------------
+# Скрипт автоустановки WP-CLI для CMS WordPress
+# с предустановленными настройками
+# Информация актуальна на 11.2020
+#------------------------------------------------------------------
+
+wp core download
+
+wp config create --dbname=wp --dbuser=oc_debo --dbpass=tEqCgOGcIrM9Yhb1l9LMrCxjTUazEG
+wp db create
+wp core install --url=deboart.dhis.org --title="SITE TITLE" --admin_user=debo --admin_password=DB183729! --admin_email=YOUR@EMAIL.com
+
+# ===Удаление лишних настроек и данных===
+
+wp plugin delete hello
+wp plugin delete aksimet
+
+wp comment delete $(wp comment list --format=ids)
+wp post delete $(wp post list --post_type='post' --format=ids)
+wp post delete $(wp post list --post_type='page' --format=ids)
+wp site empty
+wp site empty --uploads
+
+# ===Установка и активация плагинов===
+
+wp plugin install getwid
+wp plugin activate getwid
+
+wp plugin install advanced-custom-fields
+wp plugin activate advanced-custom-fields
+
+wp plugin install acf-extended
+wp plugin activate acf-extended
+
+wp plugin install gutentor
+wp plugin activate gutentor
+
+wp plugin install wp-mail-smtp
+wp plugin activate wp-mail-smtp
+
+wp plugin install wp-fastest-cache
+wp plugin activate wp-fastest-cache
+
+wp plugin install regenerate-thumbnails
+wp plugin activate regenerate-thumbnails
+
+wp plugin install wp-file-manager
+wp plugin activate wp-file-manager
+
+#wp option update fm-lang ru
+
+# ===Установка собственных плагинов===
+
+wp plugin install citotnik
+wp plugin activate citotnik 
+
+# ===Установка и активация тем===
+
+wp theme install twentyfifteen
+wp theme activate twentyfifteen
+
+wp theme install twentysixteen
+wp theme activate twentysixteen
+
+wp theme install twentyseventeen
+wp theme activate twentyseventeen
+
+wp theme install twentynineteen
+wp theme activate twentynineteen
+
+wp theme install twentytwenty
+wp theme activate twentytwenty
+
+
+# ===Настройка config.php===
+
+wp rewrite structure '/%postname%/'
+# wp option update blog_public 1
+wp option update blogname "Your site name"
+wp option update blogdescription "Your site description"
+wp option update default_comment_status closed
+wp option update default_ping_status closed
+wp option update timezone_string "Europe/Moscow"
+
+# ===Создание пользователей по умолчанию===
+
+#wp user create john john@example.com --role=author
+
+# ===Создание первичного контента===
+
+#wp post create ./PAGE-CONTENT.txt --post_type=page --post_title='PAGE FROM FILE'
+#wp post create ./about.txt --post_type=page --post_title='About'
+#wp post create ./contact.txt --post_type=page --post_title='Contact'
+#wp post create ./privacy.txt --post_type=page --post_title='Privacy Policy'
+
+#wp post generate --count=10
+#curl http://loripsum.net/api/4 | wp post generate --post_content --count=10

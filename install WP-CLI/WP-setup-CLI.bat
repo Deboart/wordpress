@@ -4,7 +4,7 @@ rem #!/bin/bash
 rem -------------------------------------------------------------------
 rem  Скрипт автоустановки WP-CLI для CMS WordPress
 rem  с предустановленными настройками
-rem  Информация актуальна на 11.2020
+rem  Информация актуальна на 03.2022
 rem ------------------------------------------------------------------
 
 if (%1)==() goto %noparam
@@ -36,14 +36,14 @@ rem  ===Установка и активация плагинов===
 rem php wp plugin install getwid
 rem php wp plugin activate getwid
 
-php wp plugin install advanced-custom-fields
-php wp plugin activate advanced-custom-fields
+rem php wp plugin install advanced-custom-fields
+rem php wp plugin activate advanced-custom-fields
 
-php wp plugin install acf-extended
-php wp plugin activate acf-extended
+rem php wp plugin install acf-extended
+rem php wp plugin activate acf-extended
 
-php wp plugin install gutentor
-php wp plugin activate gutentor
+rem php wp plugin install gutentor
+rem php wp plugin activate gutentor
 
 php wp plugin install wp-mail-smtp
 php wp plugin activate wp-mail-smtp
@@ -94,6 +94,9 @@ rem php wp theme activate twentytwenty
 
 php wp theme install twentytwentyone
 php wp theme activate twentytwentyone
+
+php wp theme install twentytwentytwo
+php wp theme activate twentytwentytwo
 
 rem  ===Настройка config.php===
 
